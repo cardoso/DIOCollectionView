@@ -10,6 +10,10 @@ import UIKit
 
 class DIODragInfo {
     var userData: Any?
+    
+    init(withUserData userData: Any?) {
+        self.userData = userData
+    }
 }
 
 enum DIODragState {
@@ -49,6 +53,9 @@ class DIOCollectionView: UICollectionView {
     
     // touch offset from center of dragged cell
     var dragOffset = CGPoint.zero
+    
+    // allow drag and drop in same view
+    var allowFeedback = false
     
     // Initialize
     override func awakeFromNib() {
@@ -129,7 +136,7 @@ class DIOCollectionView: UICollectionView {
         
         // set position of dragView to new location
         dragView.center = CGPoint(x: location.x + self.dragOffset.x, y: location.y + self.dragOffset.y)
-
+        
         // get view behind dragView
         guard let destination = self.superview?.hitTest(dragView.center, filter: { $0 as? DIOCollectionViewDestination != nil }) as? DIOCollectionViewDestination else { return }
         guard let destinationView = destination as? UIView else { return }
@@ -138,7 +145,7 @@ class DIOCollectionView: UICollectionView {
         let location = self.superview!.convert(dragView.center, to: destinationView)
         
         // send event to destination
-        if let lastDestinationView = self.lastDestinationView {
+        if self.lastDestinationView != nil {
             if destinationView != self.lastDestinationView {
                 destination.receivedDragWithDragInfo(self.dragInfo, andDragState: .began(location: location))
             } else {
@@ -149,7 +156,6 @@ class DIOCollectionView: UICollectionView {
         }
         
         self.lastDestinationView = destinationView
-        print(destination)
     }
     
     func endDragAtLocation(_ location: CGPoint) {
@@ -157,7 +163,7 @@ class DIOCollectionView: UICollectionView {
         guard let dragView = self.dragView else { return }
         
         // get view behind dragView
-        guard let destination = self.superview?.hitTest(dragView.center, filter: { $0 as? DIOCollectionViewDestination != nil }) as? DIOCollectionViewDestination else { return }
+        guard let destination = self.superview?.hitTest(dragView.center, filter: destinationFilter) as? DIOCollectionViewDestination else { return }
         guard let destinationView = destination as? UIView else { return }
         
         // get location inside destinationView
@@ -175,7 +181,7 @@ class DIOCollectionView: UICollectionView {
         guard let dragView = self.dragView else { return }
         
         // get view behind dragView
-        guard let destination = self.superview?.hitTest(dragView.center, filter: { $0 as? DIOCollectionViewDestination != nil }) as? DIOCollectionViewDestination else { return }
+        guard let destination = self.superview?.hitTest(dragView.center, filter: destinationFilter) as? DIOCollectionViewDestination else { return }
         guard let destinationView = destination as? UIView else { return }
         
         // get location inside destinationView
@@ -183,5 +189,18 @@ class DIOCollectionView: UICollectionView {
         
         // send event to destination
         destination.receivedDragWithDragInfo(self.dragInfo, andDragState: .cancelled(location: location))
+    }
+    
+    // destination view filter
+    func destinationFilter(view: UIView) -> Bool {
+        if view as? DIOCollectionViewDestination != nil {
+            if(self.allowFeedback) {
+                return true
+            } else {
+                return view != self
+            }
+        }
+        
+        return false
     }
 }

@@ -36,8 +36,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, DIOCollectionV
     // MARK - DIOCollectionViewDataSource
     
     func dioCollectionView(_ dioCollectionView: DIOCollectionView, dragInfoForItemAtIndexPath indexPath: IndexPath) -> DIODragInfo {
-        let dragInfo = DIODragInfo()
-        dragInfo.userData = ((dioCollectionView == collectionView1) ? items1 : items2)[indexPath.row]
+        
+        let cellData = ((dioCollectionView == collectionView1) ? items1 : items2)[indexPath.row]
+        
+        let dragInfo = DIODragInfo(withUserData: cellData)
+        
         return dragInfo
     }
     
