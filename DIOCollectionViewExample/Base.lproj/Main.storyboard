@@ -26,7 +26,6 @@
                                 <rect key="frame" x="16" y="28" width="343" height="58"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="343" id="RKG-UJ-NYc"/>
                                     <constraint firstAttribute="height" constant="58" id="iwK-cs-sF7"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Onn-lx-285">
@@ -70,7 +69,6 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="58" id="coX-ar-85P"/>
-                                    <constraint firstAttribute="width" constant="343" id="ihz-zW-eKp"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vXd-XW-Q0M">
                                     <size key="itemSize" width="50" height="50"/>
@@ -128,20 +126,68 @@
                                     <constraint firstItem="9uF-qf-lE7" firstAttribute="centerX" secondItem="9kX-f0-N1N" secondAttribute="centerX" id="ztf-bU-Nx2"/>
                                 </constraints>
                             </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YQ0-Aa-Xdl" customClass="DIOCollectionView" customModule="DIOCollectionViewExample" customModuleProvider="target">
+                                <rect key="frame" x="16" y="160" width="343" height="58"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="9UX-0i-6vR"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="RN0-gA-Juw">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="4jz-Ps-GrO">
+                                        <rect key="frame" x="0.0" y="4" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AtF-nM-0nu">
+                                                    <rect key="frame" x="0.0" y="0.5" width="50" height="50"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <color key="backgroundColor" red="0.0017924096865908901" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="AtF-nM-0nu" firstAttribute="width" secondItem="4jz-Ps-GrO" secondAttribute="width" id="6Jt-PZ-e3o"/>
+                                            <constraint firstItem="AtF-nM-0nu" firstAttribute="height" secondItem="4jz-Ps-GrO" secondAttribute="height" id="93Q-bB-NSQ"/>
+                                            <constraint firstItem="AtF-nM-0nu" firstAttribute="centerY" secondItem="4jz-Ps-GrO" secondAttribute="centerY" id="OVV-tA-qFP"/>
+                                            <constraint firstItem="AtF-nM-0nu" firstAttribute="centerX" secondItem="4jz-Ps-GrO" secondAttribute="centerX" id="PaK-Ld-Wpc"/>
+                                        </constraints>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="x7I-EO-mMd"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Opp-QU-2gF"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="YQ0-Aa-Xdl" firstAttribute="top" secondItem="PLh-TI-vnb" secondAttribute="bottom" constant="8" id="FG8-Ph-lNK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="PLh-TI-vnb" secondAttribute="trailing" id="Mdk-QA-Jqj"/>
                             <constraint firstItem="PLh-TI-vnb" firstAttribute="top" secondItem="oEW-E8-YW6" secondAttribute="bottom" constant="8" id="Pmq-GB-9fi"/>
                             <constraint firstAttribute="leadingMargin" secondItem="PLh-TI-vnb" secondAttribute="leading" id="fkR-B5-seT"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="9kX-f0-N1N" secondAttribute="bottom" constant="20" id="moO-Yc-cZi"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="oEW-E8-YW6" secondAttribute="trailing" id="oH4-RR-DzM"/>
                             <constraint firstItem="oEW-E8-YW6" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="rCs-vF-6IX"/>
                             <constraint firstAttribute="leadingMargin" secondItem="oEW-E8-YW6" secondAttribute="leading" id="s7r-WC-5M5"/>
                             <constraint firstItem="9kX-f0-N1N" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xk2-Ed-qhX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="YQ0-Aa-Xdl" secondAttribute="trailing" id="yD9-EJ-brn"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="YQ0-Aa-Xdl" secondAttribute="leading" id="yZ3-Pj-1lb"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="collectionView1" destination="oEW-E8-YW6" id="OuP-Dq-blV"/>
                         <outlet property="collectionView2" destination="PLh-TI-vnb" id="XqE-x3-Xlk"/>
+                        <outlet property="collectionView3" destination="YQ0-Aa-Xdl" id="q0S-WY-51c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

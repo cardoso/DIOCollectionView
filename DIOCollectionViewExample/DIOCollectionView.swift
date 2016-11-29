@@ -18,8 +18,10 @@ class DIODragInfo {
 
 enum DIODragState {
     case began(location: CGPoint)
+    case entered(location: CGPoint)
     case moved(location: CGPoint)
     case ended(location: CGPoint)
+    case left(location: CGPoint)
     case cancelled(location: CGPoint)
 }
 
@@ -28,7 +30,7 @@ protocol DIOCollectionViewDataSource: class {
 }
 
 protocol DIOCollectionViewDelegate: class {
-    func dioCollectionView(_ dioCollectionView: DIOCollectionView, startedDragAtIndexPath: IndexPath)
+    func dioCollectionView(_ dioCollectionView: DIOCollectionView, draggedItemAtIndexPath indexPath: IndexPath, withDragState dragState: DIODragState)
 }
 
 protocol DIOCollectionViewDestination {
@@ -41,6 +43,9 @@ class DIOCollectionView: UICollectionView {
     weak var dioDataSource: DIOCollectionViewDataSource?
     
     var longPress: UILongPressGestureRecognizer?
+    
+    //
+    var beganDragging = false
     
     // dragInfo to send to destination
     var dragInfo: DIODragInfo?
@@ -56,6 +61,9 @@ class DIOCollectionView: UICollectionView {
     
     // allow drag and drop in same view
     var allowFeedback = false
+    
+    // indexPath being dragged
+    var dragIndexPath = IndexPath(item: -1, section: -1)
     
     // Initialize
     override func awakeFromNib() {
@@ -90,8 +98,10 @@ class DIOCollectionView: UICollectionView {
             updateDragAtLocation(location)
         case .ended:
             endDragAtLocation(location)
+            self.beganDragging = false
         case .cancelled:
             cancelDragAtLocation(location)
+            self.beganDragging = false
             break
         default:
             break
@@ -101,14 +111,21 @@ class DIOCollectionView: UICollectionView {
     func startDragAtLocation(_ location: CGPoint) {
         
         // get indexPath of Item at drag location then get the cell
-        guard let indexPath = self.indexPathForItem(at: location) else { return }
+        guard let indexPath = self.indexPathForItem(at: location),
+            isValidIndexPath(indexPath: indexPath) else { return }
         guard let cell = self.cellForItem(at: indexPath) else { return }
-        
-        // notify delegate
-        self.dioDelegate?.dioCollectionView(self, startedDragAtIndexPath: indexPath)
         
         // get dragInfo from dataSource
         self.dragInfo = self.dioDataSource?.dioCollectionView(self, dragInfoForItemAtIndexPath: indexPath)
+        
+        // notify delegate
+        self.dioDelegate?.dioCollectionView(self, draggedItemAtIndexPath: indexPath, withDragState: .began(location: location))
+        
+        // set beganDrag flag
+        self.beganDragging = true
+        
+        // save indexPath
+        self.dragIndexPath = indexPath
         
         // make a fake view and add to superview, hide real cell
         guard let dragView = cell.snapshotView(afterScreenUpdates: false) else { return }
@@ -131,6 +148,11 @@ class DIOCollectionView: UICollectionView {
     
     func updateDragAtLocation(_ location: CGPoint) {
         
+        if(!beganDragging) { return }
+        
+        // notify delegate
+        self.dioDelegate?.dioCollectionView(self, draggedItemAtIndexPath: self.dragIndexPath, withDragState: .moved(location: location))
+        
         // get fake view for dragging
         guard let dragView = self.dragView else { return }
         
@@ -138,27 +160,44 @@ class DIOCollectionView: UICollectionView {
         dragView.center = CGPoint(x: location.x + self.dragOffset.x, y: location.y + self.dragOffset.y)
         
         // get view behind dragView
-        guard let destination = self.superview?.hitTest(dragView.center, filter: { $0 as? DIOCollectionViewDestination != nil }) as? DIOCollectionViewDestination else { return }
+        let hitTestView = self.superview?.hitTest(dragView.center, filter: destinationFilter)
+        guard let destination = hitTestView as? DIOCollectionViewDestination else {
+            
+            let lastDestinationView = (self.lastDestinationView as? DIOCollectionViewDestination)
+            lastDestinationView?.receivedDragWithDragInfo(self.dragInfo, andDragState: .left(location: location))
+            self.lastDestinationView = nil
+            
+            return
+        }
         guard let destinationView = destination as? UIView else { return }
         
         // get location inside destinationView
         let location = self.superview!.convert(dragView.center, to: destinationView)
         
         // send event to destination
+        
         if self.lastDestinationView != nil {
             if destinationView != self.lastDestinationView {
-                destination.receivedDragWithDragInfo(self.dragInfo, andDragState: .began(location: location))
+                let lastDestination = self.lastDestinationView as? DIOCollectionViewDestination
+                lastDestination?.receivedDragWithDragInfo(self.dragInfo, andDragState: .left(location: location))
+                destination.receivedDragWithDragInfo(self.dragInfo, andDragState: .entered(location: location))
             } else {
                 destination.receivedDragWithDragInfo(self.dragInfo, andDragState: .moved(location: location))
             }
         } else {
-            destination.receivedDragWithDragInfo(self.dragInfo, andDragState: .began(location: location))
+            destination.receivedDragWithDragInfo(self.dragInfo, andDragState: .entered(location: location))
         }
         
         self.lastDestinationView = destinationView
     }
     
     func endDragAtLocation(_ location: CGPoint) {
+        
+        if(!beganDragging) { return }
+        
+        // notify delegate
+        self.dioDelegate?.dioCollectionView(self, draggedItemAtIndexPath: self.dragIndexPath, withDragState: .ended(location: location))
+        
         // get fake view for dragging
         guard let dragView = self.dragView else { return }
         
@@ -171,12 +210,15 @@ class DIOCollectionView: UICollectionView {
         
         // send event to destination
         destination.receivedDragWithDragInfo(self.dragInfo, andDragState: .ended(location: location))
-        
-        // remove dragView
-        dragView.removeFromSuperview()
     }
     
     func cancelDragAtLocation(_ location: CGPoint) {
+        
+        if(!beganDragging) { return }
+        
+        // notify delegate
+        self.dioDelegate?.dioCollectionView(self, draggedItemAtIndexPath: self.dragIndexPath, withDragState: .cancelled(location: location))
+        
         // get fake view for dragging
         guard let dragView = self.dragView else { return }
         
@@ -202,5 +244,11 @@ class DIOCollectionView: UICollectionView {
         }
         
         return false
+    }
+    
+    // is indexPath valid
+    func isValidIndexPath(indexPath: IndexPath) -> Bool {
+        return indexPath.section < self.numberOfSections &&
+               indexPath.row < self.numberOfItems(inSection: indexPath.section)
     }
 }

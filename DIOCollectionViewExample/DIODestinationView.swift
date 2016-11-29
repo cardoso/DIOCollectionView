@@ -27,6 +27,8 @@ class DIODestinationView: UIView, DIOCollectionViewDestination {
     
     func receivedDragWithDragInfo(_ dragInfo: DIODragInfo?, andDragState dragState: DIODragState) {
         
+        print(dragState)
+        
         let selfLabel = self.subviews[0] as! UILabel
         let item = (dragInfo?.userData as? (Int, UIColor))!
         
