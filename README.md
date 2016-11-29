@@ -2,7 +2,7 @@
 
 ## Features
 - Drag from CollectionView to any View
-- Flexible behaviour with delegates
+- Flexible delegated behaviours 
 
 ## Preview
 ![PREVIEW1](https://github.com/matheusmcardoso/DIOCollectionView/blob/master/media/preview1.gif)
