@@ -10,6 +10,7 @@ import UIKit
 
 class DIODragInfo {
     var userData: Any?
+    var sender: DIOCollectionView?
     
     init(withUserData userData: Any?) {
         self.userData = userData
@@ -117,6 +118,7 @@ class DIOCollectionView: UICollectionView {
         
         // get dragInfo from dataSource
         self.dragInfo = self.dioDataSource?.dioCollectionView(self, dragInfoForItemAtIndexPath: indexPath)
+        self.dragInfo?.sender = self
         
         // notify delegate
         self.dioDelegate?.dioCollectionView(self, draggedItemAtIndexPath: indexPath, withDragState: .began(location: location))
@@ -249,6 +251,6 @@ class DIOCollectionView: UICollectionView {
     // is indexPath valid
     func isValidIndexPath(indexPath: IndexPath) -> Bool {
         return indexPath.section < self.numberOfSections &&
-               indexPath.row < self.numberOfItems(inSection: indexPath.section)
+            indexPath.row < self.numberOfItems(inSection: indexPath.section)
     }
 }
