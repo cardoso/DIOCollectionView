@@ -3,6 +3,7 @@
 ## Features
 - Drag from CollectionView to any View
 - Flexible delegated behaviors
+- Snapshot view and animations specifiable via DataSource
 
 ## Preview
 Drag to UIView  | Drag to DIOCollectionView | Another example coming soon
