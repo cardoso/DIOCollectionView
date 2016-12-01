@@ -62,23 +62,27 @@ class ViewController: UIViewController, UICollectionViewDelegate, DIOCollectionV
     
     // MARK - DIOCollectionViewDataSource
     
-    func dioCollectionView(_ dioCollectionView: DIOCollectionView, dragInfoForItemAtIndexPath indexPath: IndexPath) -> DIODragInfo {
-        
+    func dioCollectionView(_ dioCollectionView: DIOCollectionView, userDataForItemAtIndexPath indexPath: IndexPath) -> Any? {
         let cellData = itemsForCollectionView(collectionView: dioCollectionView)[indexPath.row]
         
-        let dragInfo = DIODragInfo(withUserData: cellData)
+        print(cellData)
         
-        return dragInfo
+        return cellData
     }
+    
+    // DataSource function to customize fake view
+    /*func dioCollectionView(_ dioCollectionView: DIOCollectionView, viewForItemAtIndexPath indexPath: IndexPath) -> UIView {
+        
+        let view = UIView(frame: CGRect(origin: CGPoint.zero, size: CGSize(width: 100, height: 100)))
+        view.backgroundColor = UIColor.purple
+        return view
+    }*/
     
     // MARK - DIOCollectionViewDelegate
     
     func dioCollectionView(_ dioCollectionView: DIOCollectionView, draggedItemAtIndexPath indexPath: IndexPath, withDragState dragState: DIODragState) {
-        
         if dioCollectionView == collectionView1 {
             switch(dragState) {
-            case .ended:
-                collectionView1.dragView?.removeFromSuperview()
             default:
                 break
             }
@@ -90,7 +94,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, DIOCollectionV
                 self.items2.remove(at: indexPath.row)
                 self.collectionView2.deleteItems(at: [indexPath])
                 
-                collectionView2.dragView?.removeFromSuperview()
             default:
                 break
             }
@@ -101,8 +104,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, DIOCollectionV
             case .began:
                 self.items3.remove(at: indexPath.row)
                 self.collectionView3.deleteItems(at: [indexPath])
-            case .ended:
-                collectionView3.dragView?.removeFromSuperview()
             default:
                 break
             }

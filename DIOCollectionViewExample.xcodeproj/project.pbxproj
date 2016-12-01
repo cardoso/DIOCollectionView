@@ -13,8 +13,9 @@
 		D100494B1DECEC6A004CCFAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D100494A1DECEC6A004CCFAA /* Assets.xcassets */; };
 		D100494E1DECEC6A004CCFAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D100494C1DECEC6A004CCFAA /* LaunchScreen.storyboard */; };
 		D10049561DECEEB5004CCFAA /* DIOCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10049551DECEEB5004CCFAA /* DIOCollectionView.swift */; };
-		D10049581DECF1BA004CCFAA /* DIODestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10049571DECF1BA004CCFAA /* DIODestinationView.swift */; };
+		D10049581DECF1BA004CCFAA /* DestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10049571DECF1BA004CCFAA /* DestinationView.swift */; };
 		D100495B1DED06AC004CCFAA /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D100495A1DED06AC004CCFAA /* UIView+Extensions.swift */; };
+		D11BFE711DF09AC20046086C /* DIOCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11BFE701DF09AC20046086C /* DIOCollectionViewDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,8 +27,9 @@
 		D100494D1DECEC6A004CCFAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D100494F1DECEC6A004CCFAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D10049551DECEEB5004CCFAA /* DIOCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DIOCollectionView.swift; sourceTree = "<group>"; };
-		D10049571DECF1BA004CCFAA /* DIODestinationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DIODestinationView.swift; sourceTree = "<group>"; };
+		D10049571DECF1BA004CCFAA /* DestinationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestinationView.swift; sourceTree = "<group>"; };
 		D100495A1DED06AC004CCFAA /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		D11BFE701DF09AC20046086C /* DIOCollectionViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DIOCollectionViewDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,9 +62,9 @@
 		D10049421DECEC6A004CCFAA /* DIOCollectionViewExample */ = {
 			isa = PBXGroup;
 			children = (
+				D11BFE6F1DF09A9A0046086C /* DIOCollectionView */,
 				D10049591DED0696004CCFAA /* Extensions */,
-				D10049571DECF1BA004CCFAA /* DIODestinationView.swift */,
-				D10049551DECEEB5004CCFAA /* DIOCollectionView.swift */,
+				D10049571DECF1BA004CCFAA /* DestinationView.swift */,
 				D10049431DECEC6A004CCFAA /* AppDelegate.swift */,
 				D10049451DECEC6A004CCFAA /* ViewController.swift */,
 				D10049471DECEC6A004CCFAA /* Main.storyboard */,
@@ -79,6 +81,15 @@
 				D100495A1DED06AC004CCFAA /* UIView+Extensions.swift */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		D11BFE6F1DF09A9A0046086C /* DIOCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				D10049551DECEEB5004CCFAA /* DIOCollectionView.swift */,
+				D11BFE701DF09AC20046086C /* DIOCollectionViewDataSource.swift */,
+			);
+			name = DIOCollectionView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,11 +165,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D11BFE711DF09AC20046086C /* DIOCollectionViewDataSource.swift in Sources */,
 				D10049461DECEC6A004CCFAA /* ViewController.swift in Sources */,
 				D10049441DECEC6A004CCFAA /* AppDelegate.swift in Sources */,
 				D100495B1DED06AC004CCFAA /* UIView+Extensions.swift in Sources */,
 				D10049561DECEEB5004CCFAA /* DIOCollectionView.swift in Sources */,
-				D10049581DECF1BA004CCFAA /* DIODestinationView.swift in Sources */,
+				D10049581DECF1BA004CCFAA /* DestinationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
