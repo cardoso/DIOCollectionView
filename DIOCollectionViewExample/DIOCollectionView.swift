@@ -24,72 +24,57 @@ class DIODragInfo {
 
 enum DIODragState {
     
-    // user long pressed inside cell 
+    // user long pressed inside cell
     
     case began(location: CGPoint)
     
-    var began: (CGPoint)? {
-        if case let .began(location) = self {
-            return location
-        }
-        return nil
-    }
-    
-    // user entered a view 
+    // user entered a view
     
     case entered(location: CGPoint)
     
-    var entered: (CGPoint)? {
-        if case let .entered(location) = self {
-            return location
-        }
-        return nil
-    }
-    
-    // user moved 
+    // user moved
     
     case moved(location: CGPoint)
     
-    var moved: (CGPoint)? {
-        if case let .moved(location) = self {
-            return location
-        }
-        return nil
-    }
-    
-    // user lifted finger 
+    // user lifted finger
     
     case ended(location: CGPoint)
     
-    var ended: (CGPoint)? {
-        if case let .ended(location) = self {
-            return location
-        }
-        return nil
-    }
-    
-    // user left a view 
+    // user left a view
     
     case left(location: CGPoint)
     
-    var left: (CGPoint)? {
-        if case let .left(location) = self {
-            return location
-        }
-        return nil
-    }
-    
-    // system cancelled 
+    // system cancelled
     
     case cancelled(location: CGPoint)
     
-    var cancelled: (CGPoint)? {
-        if case let .cancelled(location) = self {
+    // location unwrapping
+    
+    var location: CGPoint? {
+        
+        switch (self) {
+            
+        case let .began(location):
             return location
+            
+        case let .entered(location):
+            return location
+            
+        case let .moved(location):
+            return location
+            
+        case let .ended(location):
+            return location
+            
+        case let .left(location):
+            return location
+            
+        case let .cancelled(location):
+            return location
+            
         }
-        return nil
+        
     }
-
 }
 
 protocol DIOCollectionViewDelegate: class {
