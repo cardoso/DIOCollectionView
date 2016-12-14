@@ -23,26 +23,59 @@ class DIODragInfo {
 }
 
 enum DIODragState {
+    
     // user long pressed inside cell
+    
     case began(location: CGPoint)
     
     // user entered a view
+    
     case entered(location: CGPoint)
     
     // user moved
+    
     case moved(location: CGPoint)
     
     // user lifted finger
+    
     case ended(location: CGPoint)
     
     // user left a view
+    
     case left(location: CGPoint)
     
     // system cancelled
+    
     case cancelled(location: CGPoint)
+    
+    // location unwrapping
+    
+    var location: CGPoint? {
+        
+        switch (self) {
+            
+        case let .began(location):
+            return location
+            
+        case let .entered(location):
+            return location
+            
+        case let .moved(location):
+            return location
+            
+        case let .ended(location):
+            return location
+            
+        case let .left(location):
+            return location
+            
+        case let .cancelled(location):
+            return location
+            
+        }
+        
+    }
 }
-
-
 
 protocol DIOCollectionViewDelegate: class {
     
