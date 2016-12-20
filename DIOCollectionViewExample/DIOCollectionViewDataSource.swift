@@ -15,6 +15,8 @@ protocol DIOCollectionViewDataSource: class {
     
     func dioCollectionView(_ dioCollectionView: DIOCollectionView, viewForItemAtIndexPath indexPath: IndexPath) -> UIView
     
+    func dioCollectionView(_ dioCollectionView: DIOCollectionView, frameForItemAtIndexPath indexPath: IndexPath) -> CGRect
+    
     func dioCollectionView(_ dioCollectionView: DIOCollectionView, animationsForItemAtIndexPath indexPath: IndexPath, withDragState dragState: DIODragState) -> (animations: () -> Void, duration: TimeInterval)
 }
 
@@ -30,6 +32,15 @@ extension DIOCollectionViewDataSource {
         }
         
         return view
+    }
+    
+    func dioCollectionView(_ dioCollectionView: DIOCollectionView, frameForItemAtIndexPath indexPath: IndexPath) -> CGRect {
+        
+        guard let cell = dioCollectionView.cellForItem(at: indexPath) else {
+            fatalError("Unexpected behavior: no cell at index path")
+        }
+        
+        return dioCollectionView.convert(cell.frame, to: dioCollectionView.superview)
     }
     
     func dioCollectionView(_ dioCollectionView: DIOCollectionView, animationsForItemAtIndexPath indexPath: IndexPath, withDragState dragState: DIODragState) -> (animations: () -> Void, duration: TimeInterval) {

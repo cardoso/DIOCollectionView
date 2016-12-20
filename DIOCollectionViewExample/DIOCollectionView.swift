@@ -174,7 +174,8 @@ class DIOCollectionView: UICollectionView {
         
         // make a fake view and add to superview, hide real cell
         self.dragView = dataSource.dioCollectionView(self, viewForItemAtIndexPath: indexPath)
-        self.dragView!.frame = self.convert(cell.frame, to: self.superview)
+        //self.dragView!.frame = self.convert(cell.frame, to: self.superview)
+        self.dragView!.frame = dataSource.dioCollectionView(self, frameForItemAtIndexPath: indexPath)
         self.dragView!.isUserInteractionEnabled = false // for hitTests
         self.superview!.addSubview(self.dragView!)
         
@@ -257,7 +258,7 @@ class DIOCollectionView: UICollectionView {
             
             self.lastDestinationView = destinationView
             
-
+            
         } else {
             
             let lastDestinationView = (self.lastDestinationView as? DIOCollectionViewDestination)
