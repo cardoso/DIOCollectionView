@@ -165,7 +165,7 @@ open class DIOCollectionView: UICollectionView {
         // get indexPath of Item at drag location then get the cell
         guard let indexPath = self.indexPathForItem(at: location),
             isValidIndexPath(indexPath: indexPath) else { return }
-        guard let cell = self.cellForItem(at: indexPath) else { return }
+        guard let _ = self.cellForItem(at: indexPath) else { return }
         
         // get dragInfo from dataSource
         self.dragInfo = DIODragInfo(
