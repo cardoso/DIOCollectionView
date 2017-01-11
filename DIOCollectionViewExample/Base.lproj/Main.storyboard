@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -22,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="oEW-E8-YW6" customClass="DIOCollectionView" customModule="DIOCollectionViewExample" customModuleProvider="target">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="oEW-E8-YW6" customClass="DIOCollectionView" customModule="DIOCollectionView">
                                 <rect key="frame" x="16" y="28" width="343" height="58"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -64,7 +63,7 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="aE2-Xq-Qii"/>
                                 </connections>
                             </collectionView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PLh-TI-vnb" customClass="DIOCollectionView" customModule="DIOCollectionViewExample" customModuleProvider="target">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PLh-TI-vnb" customClass="DIOCollectionView" customModule="DIOCollectionView">
                                 <rect key="frame" x="16" y="94" width="343" height="58"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -106,7 +105,7 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="JSw-xq-2wp"/>
                                 </connections>
                             </collectionView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9kX-f0-N1N" customClass="DIODestinationView" customModule="DIOCollectionViewExample" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9kX-f0-N1N" customClass="DestinationView" customModule="DIOCollectionViewExample" customModuleProvider="target">
                                 <rect key="frame" x="67" y="519" width="240" height="128"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9uF-qf-lE7">
@@ -126,7 +125,7 @@
                                     <constraint firstItem="9uF-qf-lE7" firstAttribute="centerX" secondItem="9kX-f0-N1N" secondAttribute="centerX" id="ztf-bU-Nx2"/>
                                 </constraints>
                             </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YQ0-Aa-Xdl" customClass="DIOCollectionView" customModule="DIOCollectionViewExample" customModuleProvider="target">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YQ0-Aa-Xdl" customClass="DIOCollectionView" customModule="DIOCollectionView">
                                 <rect key="frame" x="16" y="160" width="343" height="58"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DIOCollectionView
 
 class ViewController: UIViewController, UICollectionViewDelegate, DIOCollectionViewDelegate, UICollectionViewDataSource, DIOCollectionViewDataSource {
 

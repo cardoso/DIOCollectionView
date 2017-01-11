@@ -7,18 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A529BC6DB4C3777B374E175 /* Pods_DIOCollectionViewExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 857F873C56A7D226009429E8 /* Pods_DIOCollectionViewExample.framework */; };
 		D10049441DECEC6A004CCFAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10049431DECEC6A004CCFAA /* AppDelegate.swift */; };
 		D10049461DECEC6A004CCFAA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10049451DECEC6A004CCFAA /* ViewController.swift */; };
 		D10049491DECEC6A004CCFAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D10049471DECEC6A004CCFAA /* Main.storyboard */; };
 		D100494B1DECEC6A004CCFAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D100494A1DECEC6A004CCFAA /* Assets.xcassets */; };
 		D100494E1DECEC6A004CCFAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D100494C1DECEC6A004CCFAA /* LaunchScreen.storyboard */; };
-		D10049561DECEEB5004CCFAA /* DIOCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10049551DECEEB5004CCFAA /* DIOCollectionView.swift */; };
 		D10049581DECF1BA004CCFAA /* DestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10049571DECF1BA004CCFAA /* DestinationView.swift */; };
-		D100495B1DED06AC004CCFAA /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D100495A1DED06AC004CCFAA /* UIView+Extensions.swift */; };
-		D11BFE711DF09AC20046086C /* DIOCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11BFE701DF09AC20046086C /* DIOCollectionViewDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		59467C36ECF1A3C9E6680C95 /* Pods-DIOCollectionViewExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DIOCollectionViewExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-DIOCollectionViewExample/Pods-DIOCollectionViewExample.release.xcconfig"; sourceTree = "<group>"; };
+		661C903504B4D1D9972378BE /* Pods-DIOCollectionViewExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DIOCollectionViewExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DIOCollectionViewExample/Pods-DIOCollectionViewExample.debug.xcconfig"; sourceTree = "<group>"; };
+		857F873C56A7D226009429E8 /* Pods_DIOCollectionViewExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DIOCollectionViewExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D10049401DECEC6A004CCFAA /* DIOCollectionViewExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DIOCollectionViewExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D10049431DECEC6A004CCFAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D10049451DECEC6A004CCFAA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -26,10 +27,8 @@
 		D100494A1DECEC6A004CCFAA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D100494D1DECEC6A004CCFAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D100494F1DECEC6A004CCFAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D10049551DECEEB5004CCFAA /* DIOCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DIOCollectionView.swift; sourceTree = "<group>"; };
 		D10049571DECF1BA004CCFAA /* DestinationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestinationView.swift; sourceTree = "<group>"; };
-		D100495A1DED06AC004CCFAA /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
-		D11BFE701DF09AC20046086C /* DIOCollectionViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DIOCollectionViewDataSource.swift; sourceTree = "<group>"; };
+		D1FB48471E25B50A0031FC5D /* DIOCollectionView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DIOCollectionView.framework; path = "../../../../Library/Developer/Xcode/DerivedData/DIOCollectionViewExample-flasezvuehngnwgvvmtihuxkdlbf/Build/Products/Debug-iphonesimulator/DIOCollectionView/DIOCollectionView.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,17 +36,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A529BC6DB4C3777B374E175 /* Pods_DIOCollectionViewExample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		29828DDA97093338BC193364 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				661C903504B4D1D9972378BE /* Pods-DIOCollectionViewExample.debug.xcconfig */,
+				59467C36ECF1A3C9E6680C95 /* Pods-DIOCollectionViewExample.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C21A89B140B6EB2D6B046B8F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D1FB48471E25B50A0031FC5D /* DIOCollectionView.framework */,
+				857F873C56A7D226009429E8 /* Pods_DIOCollectionViewExample.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D10049371DECEC6A004CCFAA = {
 			isa = PBXGroup;
 			children = (
 				D10049421DECEC6A004CCFAA /* DIOCollectionViewExample */,
 				D10049411DECEC6A004CCFAA /* Products */,
+				29828DDA97093338BC193364 /* Pods */,
+				C21A89B140B6EB2D6B046B8F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,8 +82,6 @@
 		D10049421DECEC6A004CCFAA /* DIOCollectionViewExample */ = {
 			isa = PBXGroup;
 			children = (
-				D11BFE6F1DF09A9A0046086C /* DIOCollectionView */,
-				D10049591DED0696004CCFAA /* Extensions */,
 				D10049571DECF1BA004CCFAA /* DestinationView.swift */,
 				D10049431DECEC6A004CCFAA /* AppDelegate.swift */,
 				D10049451DECEC6A004CCFAA /* ViewController.swift */,
@@ -75,23 +93,6 @@
 			path = DIOCollectionViewExample;
 			sourceTree = "<group>";
 		};
-		D10049591DED0696004CCFAA /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				D100495A1DED06AC004CCFAA /* UIView+Extensions.swift */,
-			);
-			name = Extensions;
-			sourceTree = "<group>";
-		};
-		D11BFE6F1DF09A9A0046086C /* DIOCollectionView */ = {
-			isa = PBXGroup;
-			children = (
-				D10049551DECEEB5004CCFAA /* DIOCollectionView.swift */,
-				D11BFE701DF09AC20046086C /* DIOCollectionViewDataSource.swift */,
-			);
-			name = DIOCollectionView;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -99,9 +100,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D10049521DECEC6A004CCFAA /* Build configuration list for PBXNativeTarget "DIOCollectionViewExample" */;
 			buildPhases = (
+				2AEC252E1C87B3770E96D29E /* [CP] Check Pods Manifest.lock */,
 				D100493C1DECEC6A004CCFAA /* Sources */,
 				D100493D1DECEC6A004CCFAA /* Frameworks */,
 				D100493E1DECEC6A004CCFAA /* Resources */,
+				F778FCF4733BDF5858612E27 /* [CP] Embed Pods Frameworks */,
+				BC3D80FDA0B75E23741F3FC1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -160,16 +164,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2AEC252E1C87B3770E96D29E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BC3D80FDA0B75E23741F3FC1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DIOCollectionViewExample/Pods-DIOCollectionViewExample-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F778FCF4733BDF5858612E27 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DIOCollectionViewExample/Pods-DIOCollectionViewExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D100493C1DECEC6A004CCFAA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D11BFE711DF09AC20046086C /* DIOCollectionViewDataSource.swift in Sources */,
 				D10049461DECEC6A004CCFAA /* ViewController.swift in Sources */,
 				D10049441DECEC6A004CCFAA /* AppDelegate.swift in Sources */,
-				D100495B1DED06AC004CCFAA /* UIView+Extensions.swift in Sources */,
-				D10049561DECEEB5004CCFAA /* DIOCollectionView.swift in Sources */,
 				D10049581DECF1BA004CCFAA /* DestinationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -214,6 +263,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -264,6 +314,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -291,7 +342,9 @@
 		};
 		D10049531DECEC6A004CCFAA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 661C903504B4D1D9972378BE /* Pods-DIOCollectionViewExample.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = FWD9V5VYJ2;
 				INFOPLIST_FILE = DIOCollectionViewExample/Info.plist;
@@ -305,7 +358,9 @@
 		};
 		D10049541DECEC6A004CCFAA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 59467C36ECF1A3C9E6680C95 /* Pods-DIOCollectionViewExample.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = FWD9V5VYJ2;
 				INFOPLIST_FILE = DIOCollectionViewExample/Info.plist;

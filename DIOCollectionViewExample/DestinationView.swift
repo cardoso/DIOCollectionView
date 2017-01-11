@@ -1,5 +1,5 @@
 //
-//  DIOView.swift
+//  DestinationView.swift
 //  DIOCollectionViewExample
 //
 //  Created by Matheus Martins on 11/28/16.
@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import DIOCollectionView
 
-class DIODestinationCollectionView: DIOCollectionView, DIOCollectionViewDestination {
+class DestinationCollectionView: DIOCollectionView, DIOCollectionViewDestination {
     
     func receivedDragWithDragInfo(_ dragInfo: DIODragInfo?, andDragState dragState: DIODragState) {
         switch(dragState) {
@@ -23,7 +24,7 @@ class DIODestinationCollectionView: DIOCollectionView, DIOCollectionViewDestinat
 
 }
 
-class DIODestinationView: UIView, DIOCollectionViewDestination {
+class DestinationView: UIView, DIOCollectionViewDestination {
     
     func receivedDragWithDragInfo(_ dragInfo: DIODragInfo?, andDragState dragState: DIODragState) {
         

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-extension UIView {
+public extension UIView {
     func hitTest(_ point: CGPoint, filter: (UIView) -> Bool) -> UIView? {
         
         var view = self

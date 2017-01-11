@@ -1,5 +1,10 @@
 ![LOGO](https://github.com/matheusmcardoso/DIOCollectionView/blob/master/media/logo.png)
 
+[![CI Status](http://img.shields.io/travis/Matheus Martins/DIOCollectionView.svg?style=flat)](https://travis-ci.org/Matheus Martins/DIOCollectionView)
+[![Version](https://img.shields.io/cocoapods/v/DIOCollectionView.svg?style=flat)](http://cocoapods.org/pods/DIOCollectionView)
+[![License](https://img.shields.io/cocoapods/l/DIOCollectionView.svg?style=flat)](http://cocoapods.org/pods/DIOCollectionView)
+[![Platform](https://img.shields.io/cocoapods/p/DIOCollectionView.svg?style=flat)](http://cocoapods.org/pods/DIOCollectionView)
+
 ## Features
 - Drag from CollectionView to any View
 - Flexible delegated behaviors
@@ -15,7 +20,23 @@ Drag to UIView  | Drag to DIOCollectionView | Another example coming soon
 
 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [Matheus Martins](https://github.com/matheusmcardoso), V.P of Gameplay Programming @ [Xablauger Studios](https://github.com/xablauger-studios)
 
+## Example
 
+To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-## How to Use
-### Coming Soon™
+## Installation
+
+DIOCollectionView is available through [CocoaPods](http://cocoapods.org). To install
+it, simply add the following line to your Podfile:
+
+```ruby
+pod "DIOCollectionView"
+```
+
+## Author
+
+Matheus Martins, matheusmcrds@gmail.com
+
+## License
+
+DIOCollectionView is available under the MIT license. See the LICENSE file for more info.

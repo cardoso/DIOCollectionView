@@ -1,0 +1,16 @@
+PODS:
+  - DIOCollectionView (0.1.0)
+
+DEPENDENCIES:
+  - DIOCollectionView (from `.`)
+
+EXTERNAL SOURCES:
+  DIOCollectionView:
+    :path: "."
+
+SPEC CHECKSUMS:
+  DIOCollectionView: 07589541f2fcdebf1960481ed5a4648afa9c9d4d
+
+PODFILE CHECKSUM: c9ec95edbc4524494bc159fa8b9d6d9b38386e33
+
+COCOAPODS: 1.1.1

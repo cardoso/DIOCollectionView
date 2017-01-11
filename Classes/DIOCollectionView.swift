@@ -8,11 +8,11 @@
 
 import UIKit
 
-class DIODragInfo {
+open class DIODragInfo {
     
-    var userData: Any?
-    var sender: DIOCollectionView
-    var indexPath: IndexPath
+    public var userData: Any?
+    public var sender: DIOCollectionView
+    public var indexPath: IndexPath
     
     init(withUserData userData: Any?, andIndexPath indexPath: IndexPath, andSender sender: DIOCollectionView) {
         
@@ -22,7 +22,7 @@ class DIODragInfo {
     }
 }
 
-enum DIODragState {
+public enum DIODragState {
     
     // user long pressed inside cell
     
@@ -77,20 +77,20 @@ enum DIODragState {
     }
 }
 
-protocol DIOCollectionViewDelegate: class {
+public protocol DIOCollectionViewDelegate: class {
     
     func dioCollectionView(_ dioCollectionView: DIOCollectionView, draggedItemAtIndexPath indexPath: IndexPath, withDragState dragState: DIODragState)
 }
 
-protocol DIOCollectionViewDestination {
+public protocol DIOCollectionViewDestination {
     
     func receivedDragWithDragInfo(_ dragInfo: DIODragInfo?, andDragState dragState: DIODragState)
 }
 
-class DIOCollectionView: UICollectionView {
+open class DIOCollectionView: UICollectionView {
     
-    weak var dioDelegate: DIOCollectionViewDelegate?
-    weak var dioDataSource: DIOCollectionViewDataSource?
+    public weak var dioDelegate: DIOCollectionViewDelegate?
+    public weak var dioDataSource: DIOCollectionViewDataSource?
     
     var longPress: UILongPressGestureRecognizer?
     
@@ -98,10 +98,10 @@ class DIOCollectionView: UICollectionView {
     var beganDragging = false
     
     // dragInfo to send to destination
-    var dragInfo: DIODragInfo?
+    public var dragInfo: DIODragInfo?
     
     // fake view for dragging
-    var dragView: UIView?
+    public var dragView: UIView?
     
     // current destination
     var lastDestinationView: UIView?
@@ -110,13 +110,13 @@ class DIOCollectionView: UICollectionView {
     var dragOffset = CGPoint.zero
     
     // allow drag and drop in same view
-    var allowFeedback = false
+    public var allowFeedback = false
     
     // indexPath being dragged
-    var dragIndexPath = IndexPath(item: -1, section: -1)
+    public var dragIndexPath = IndexPath(item: -1, section: -1)
     
     // Initialize
-    override func awakeFromNib() {
+    open override func awakeFromNib() {
         
         super.awakeFromNib()
         

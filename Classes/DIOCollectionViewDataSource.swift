@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-protocol DIOCollectionViewDataSource: class {
+public protocol DIOCollectionViewDataSource: class {
     
     func dioCollectionView(_ dioCollectionView: DIOCollectionView, userDataForItemAtIndexPath indexPath: IndexPath) -> Any?
     
@@ -20,7 +20,7 @@ protocol DIOCollectionViewDataSource: class {
     func dioCollectionView(_ dioCollectionView: DIOCollectionView, animationsForItemAtIndexPath indexPath: IndexPath, withDragState dragState: DIODragState) -> (animations: () -> Void, duration: TimeInterval)
 }
 
-extension DIOCollectionViewDataSource {
+public extension DIOCollectionViewDataSource {
     func dioCollectionView(_ dioCollectionView: DIOCollectionView, viewForItemAtIndexPath indexPath: IndexPath) -> UIView {
         
         guard let cell = dioCollectionView.cellForItem(at: indexPath) else {
