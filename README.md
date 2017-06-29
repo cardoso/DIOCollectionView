@@ -1,6 +1,5 @@
 ![LOGO](https://github.com/matheusmcardoso/DIOCollectionView/blob/master/media/logo.png)
 
-[![CI Status](http://img.shields.io/travis/Matheus Martins/DIOCollectionView.svg?style=flat)](https://travis-ci.org/Matheus Martins/DIOCollectionView)
 [![Version](https://img.shields.io/cocoapods/v/DIOCollectionView.svg?style=flat)](http://cocoapods.org/pods/DIOCollectionView)
 [![License](https://img.shields.io/cocoapods/l/DIOCollectionView.svg?style=flat)](http://cocoapods.org/pods/DIOCollectionView)
 [![Platform](https://img.shields.io/cocoapods/p/DIOCollectionView.svg?style=flat)](http://cocoapods.org/pods/DIOCollectionView)
