@@ -34,7 +34,7 @@ pod "DIOCollectionView"
 
 ## Author
 
-Matheus Martins, matheusmcrds@gmail.com
+Matheus Cardoso, matheus@cardo.so
 
 ## License
 
